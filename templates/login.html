@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center mt-5 mb-5">
+    <form class="form-signin mt-5 form" action="{{ url_for('login') }}" method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group mt-3"> {{form.username.label (class="form-label")}} {{ form.username (class="form-control") }} </div>
+        <div class="form-group mt-3"> {{form.password.label (class="form-label")}} {{ form.password (class="form-control") }} </div>
+        <input type="submit" class="btn btn-lg btn-primary btn-block mt-3" style="width: 100%;" value="Login">
+    </form>
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<ul class=flashes>
+    {% for category, message in messages %}
+    <script type="text/javascript">
+        swal({
+        title: "Invalid Login",
+        text: "Please check your username or password",
+        icon: "error",
+        button: "Done",
+        });
+    </script>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% endblock %}
+

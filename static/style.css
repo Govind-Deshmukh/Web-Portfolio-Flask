@@ -1,0 +1,11 @@
+*{
+    font-family: 'Otomanopee One', sans-serif;
+}
+.responsive img{
+  width: 150px;
+}
+@media only screen and (max-width: 600px) {
+  .responsive img{
+    width: 100px;
+  }
+}
